@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% set active_page = "airport" %}
+
+{% block title %}Airport Data{% endblock %}
+
+{% block content %}
+    <!--page content-->
+    <h1>Choose an Airport Below</h1>
+    <h3>View Data on Different Airports in the US</h3>
+
+    <form action= '/airport' id = airportform>
+            <label for="aps">Choose a car brand:</label>
+            <select id="aps" name="aps">
+                <option value="ATL">Atlanta (ATL)</option>
+                <option value="BOS">Boston (BOS)</option>
+                <option value="BWI">Baltimore (BWI)</option>
+                <option value="CTL">Charlotte (CTL)</option>
+                <option value="DCA">Washington D.C. (DCA)</option>
+                <option value="DEN">Denver (DEN)</option>
+                <option value="DFW">Dalllas Fort Worth (DFW)</option>
+                <option value="DTW">Detroit (DTW)</option>
+                <option value=""></option>
+            </select>
+             <input type="submit" value="Submit">
+
+        </form>
+{% endblock %}
