@@ -3,8 +3,7 @@ from flask import Flask, url_for, render_template, request, url_for
 
 app = Flask(__name__)
 
-with open('airlines.json') as airlines:
-    airlines_data = json.load(airlines)
+
 
 @app.route("/")
 def render_main():
@@ -17,6 +16,14 @@ def render_airportdata():
 @app.route("/delay")
 def render_delaydata():
     return render_template('delaydata.html')
+
+def getairportdata():
+    with open('airlines.json') as airlines:
+        adata = json.load(airlines)
+    aplist = []
+    for a in adata:
+        if c["Name"] not in adata:
+            adata.append(c["Name"])
 
 
 if __name__=="__main__":
