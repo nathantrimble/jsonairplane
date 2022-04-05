@@ -20,10 +20,14 @@ def render_delaydata():
 def getairportdata():
     with open('airlines.json') as airlines:
         adata = json.load(airlines)
-    aplist = []
+
+    chosenap = request.args['aps']
+    airlAmount = 0
+    airlNames = ""
     for a in adata:
-        if c["Name"] not in adata:
-            adata.append(c["Name"])
+        if a["Name"] == chosenap:
+            airlAmount = a["Total"]
+            airlNames = a["Names"]
 
 
 if __name__=="__main__":
