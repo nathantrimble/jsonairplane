@@ -20,21 +20,19 @@ def render_aresponse():
     with open('airlines.json') as airlines:
         adata = json.load(airlines)
 
-    chosenap = request.args['aps']
-    choseyear = request.args['years']
-    chosemonth = request.args['months']
+    choseap = request.args['aps']
+    choseyear = int(request.args['years'])
+    chosemonth = int(request.args['months'])
     airlAmount = 0
     airlNames = ""
     totFlights = 0
     for a in adata:
-        if a["Airport"]["Code"] == chosenap and a['Time']['Year'] == choseyear and a['Time']['Month'] == chosemonth:
+        if a["Airport"]["Code"] == choseap and a['Time']['Year'] == choseyear and a['Time']['Month'] == chosemonth:
             airlAmount = a['Statistics']['Carriers']["Total"]
             airlNames = a['Statistics']['Carriers']["Names"]
             totFlight = a['Statistics']["Flights"]['Total']
-        return airlNames
-        return airlAmount
-        return totFlight
-    return render_aresponse('airportresponse.html')
+
+    return render_template('airportresponse.html', aA = airlAmount, aN = airlNames, tF = totFlights, cA = choseap, cY = choseyear, cM = chosemonth)
 
 
 
@@ -47,4 +45,4 @@ def render_delaydata():
 
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run(debug=True)
