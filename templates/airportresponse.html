@@ -6,9 +6,20 @@
 
 {% block content %}
     <!--page content-->
-    <h1>Home Page</h1>
+    <h1></h1>
 
     <p>
-     At the airport {{cA}} in {{cM}}/{{cY}}, there were {{aA}} airlines that operated here, and they were {{aN}}. This airport had {{tF}} total flights in this month.
+     At the airport {{cA}} in {{cM}}/{{cY}}, there were {{aA}} airlines that operated here, and they were: <div> {{aN}}
+     This airport had {{tF}} total flights in this month.
     </p>
+    <h4>
+        Airports face all kinds of delays when trying to operate hundreds of flights every day, search here to see what afflicted {{cA}} during this month.
+    </h4>
+    <form id=minidelayform>
+        <label for= "dlays">Choose a type of delay:</label>
+        <select id="dlays" name="dlays">
+            <option value=""> </option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
 {% endblock %}

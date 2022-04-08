@@ -26,15 +26,31 @@ def render_aresponse():
     airlAmount = 0
     airlNames = ""
     totFlights = 0
+    airpName = ''
+    numCD = numLAD = numNASD = numSD = numWD = minCD = minLAD = minNASD = minSD = minWD = totD = totM = 0
+
+
     for a in adata:
         if a["Airport"]["Code"] == choseap and a['Time']['Year'] == choseyear and a['Time']['Month'] == chosemonth:
             airlAmount = a['Statistics']['Carriers']["Total"]
             airlNames = a['Statistics']['Carriers']["Names"]
-            totFlight = a['Statistics']["Flights"]['Total']
+            totFlights = a['Statistics']["Flights"]['Total']
+            airpName = a['Airport']["Name"]
+            numCD = a['Statistics']['# of Delays']["Carrier"]
+            numLAD = a['Statistics']['# of Delays']["Late Aircraft"]
+            numNASD = a['Statistics']['# of Delays']["National Aviation System"]
+            numSD = a['Statistics']['# of Delays']["Security"]
+            numWD = a['Statistics']['# of Delays']["Weather"]
+            minCD = a['Statistics']['Minutes Delayed']['Carrier']
+            minLAD = a['Statistics']['Minutes Delayed']['Late Aircraft']
+            minNASD = a['Statistics']['Minutes Delayed']['National Aviation System']
+            minSD = a['Statistics']['Minutes Delayed']['Security']
+            minWD = a['Statistics']['Minutes Delayed']['Weather']
+            totM = a['Statistics']['Minutes Delayed']['Total']
+    totD = numCD + numLAD + numNASD + numSD + numWD
+    return render_template('airportresponse.html', aA = airlAmount, aN = airlNames, tF = totFlights, cA = airpName, cY = choseyear, cM = chosemonth, nCD = numCD, nLAD = numLAD, nNASD = numNASD, nSD = numSD, nWD = numWD, mCD = minCD, mLAD = minLAD, mNASD = minNASD, mSD = minSD, mWD = minWD, tM = totM, tD = totD)
 
-    return render_template('airportresponse.html', aA = airlAmount, aN = airlNames, tF = totFlights, cA = choseap, cY = choseyear, cM = chosemonth)
-
-
+def
 
 
 
