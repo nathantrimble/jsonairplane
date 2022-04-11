@@ -10,16 +10,18 @@
 
     <p>
      At the airport {{cA}} in {{cM}}/{{cY}}, there were {{aA}} airlines that operated here, and they were: <div> {{aN}}
-     This airport had {{tF}} total flights in this month.
+     </div>This airport had {{tF}} total flights in this month.
     </p>
     <h4>
-        Airports face all kinds of delays when trying to operate hundreds of flights every day, search here to see what afflicted {{cA}} during this month.
+        Airports face all kinds of delays when trying to operate hundreds of flights every day, look here to see what afflicted {{cA}} during this month.
     </h4>
-    <form id=minidelayform>
-        <label for= "dlays">Choose a type of delay:</label>
-        <select id="dlays" name="dlays">
-            <option value=""> </option>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
+    <h5>There were {{nCD}} carrier delays for {{mCD}} total minutes lost.
+        <br>There were {{nLAD}} late aircraft delays for {{mLAD}} total minutes lost.
+        <br>There were {{nNASD}} national aviaton system delays for {{mNASD}} total minutes lost.
+        <br>There were {{nSD}} security delays for {{mSD}} total minutes lost.
+        <br>There were {{nWD}} weather delays for {{mWD}} total minutes lost.
+
+        <br>In total, there were {{tD}} total delays that wasted {{tM}} minutes.
+    </h5>
+
 {% endblock %}

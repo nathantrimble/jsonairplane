@@ -50,10 +50,6 @@ def render_aresponse():
     totD = numCD + numLAD + numNASD + numSD + numWD
     return render_template('airportresponse.html', aA = airlAmount, aN = airlNames, tF = totFlights, cA = airpName, cY = choseyear, cM = chosemonth, nCD = numCD, nLAD = numLAD, nNASD = numNASD, nSD = numSD, nWD = numWD, mCD = minCD, mLAD = minLAD, mNASD = minNASD, mSD = minSD, mWD = minWD, tM = totM, tD = totD)
 
-def
-
-
-
 @app.route("/delay")
 def render_delaydata():
     return render_template('delaydata.html')
