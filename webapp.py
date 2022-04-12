@@ -54,6 +54,18 @@ def render_aresponse():
 def render_delaydata():
     return render_template('delaydata.html')
 
+@app.route("/delayresponse")
+def render_dresponse():
+    with open('airlines.json') as delayd:
+        ddata = json.load(delayd)
+
+    chosendelay = request.args['dlays']
+    delayammount = 0
+    for d in ddata:
+        if d['Statistics']['# of Delays'] == chosendelay:
+            delayamount = a['Statistics']['# of Delays'][chosendelay]
+
+    return render_template('delayresponse.html')
 
 
 if __name__=="__main__":

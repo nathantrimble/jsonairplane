@@ -6,5 +6,19 @@
 
 {% block content %}
     <!--page content-->
-    <h1>Home Page</h1>
+    <h1>Delay Page</h1>
+    <h5>
+        Anything from a deflated tire to a runaway tornado can slow down the come and go of planes at an airport, look below to find information about the different kinds of airline delays.
+    </h5>
+    <form action="/delayresponse" id="dform">
+        <label for="dlays"> </label>
+        <select id="dlays" name="dlays">
+        <option value="Carrier">Carrier</option>
+        <option value="Late Aircraft">Late Aircraft</option>
+        <option value="National Aviation System">National Aviation System</option>
+        <option value="Security">Security</option>
+        <option value="Weather">Weather</option>
+        </select>
+         <input type="submit" value="Submit">
+    </form>
 {% endblock %}
