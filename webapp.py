@@ -65,7 +65,7 @@ def render_dresponse():
         if d['Statistics']['# of Delays'] == chosendelay:
             delayamount = a['Statistics']['# of Delays'][chosendelay]
 
-    return render_template('delayresponse.html')
+    return render_template('delayresponse.html', cDL = chosendelay)
 
 
 if __name__=="__main__":

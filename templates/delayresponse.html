@@ -1,22 +1,22 @@
-extends "layout.html" %}
+{%extends "layout.html" %}
 
 {% set active_page = "delayresponse" %}
 
-{% block headc %
+{% block headc %}
     <script>
     window.onload = function () {
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title:{
-            text: "Daily High Temperature at Different Beaches"
+            text: "Number of Delays at Airports Over Time"
         },
         axisX: {
             valueFormatString: "DD MMM,YY"
         },
         axisY: {
-            title: "Temperature (in °C)",
-            suffix: " °C"
+            title: "# of Delays",
+            suffix: " Delays"
         },
         legend:{
             cursor: "pointer",
@@ -27,7 +27,7 @@ extends "layout.html" %}
             shared: true
         },
         data: [{
-            name: "Myrtle Beach",
+            name: "{{cDL}}",
             type: "spline",
             yValueFormatString: "#0.## °C",
             showInLegend: true,
@@ -40,37 +40,8 @@ extends "layout.html" %}
                 { x: new Date(2017,6,29), y: 30 },
                 { x: new Date(2017,6,30), y: 29 }
             ]
-        },
-        {
-            name: "Martha Vineyard",
-            type: "spline",
-            yValueFormatString: "#0.## °C",
-            showInLegend: true,
-            dataPoints: [
-                { x: new Date(2017,6,24), y: 20 },
-                { x: new Date(2017,6,25), y: 20 },
-                { x: new Date(2017,6,26), y: 25 },
-                { x: new Date(2017,6,27), y: 25 },
-                { x: new Date(2017,6,28), y: 25 },
-                { x: new Date(2017,6,29), y: 25 },
-                { x: new Date(2017,6,30), y: 25 }
-            ]
-        },
-        {
-            name: "Nantucket",
-            type: "spline",
-            yValueFormatString: "#0.## °C",
-            showInLegend: true,
-            dataPoints: [
-                { x: new Date(2017,6,24), y: 22 },
-                { x: new Date(2017,6,25), y: 19 },
-                { x: new Date(2017,6,26), y: 23 },
-                { x: new Date(2017,6,27), y: 24 },
-                { x: new Date(2017,6,28), y: 24 },
-                { x: new Date(2017,6,29), y: 23 },
-                { x: new Date(2017,6,30), y: 23 }
-            ]
-        }]
+        }
+        ]
     });
     chart.render();
 
@@ -91,9 +62,9 @@ extends "layout.html" %}
 
 {% block content %}
     <!--page content-->
-    <h1>Home Page</h1>
+    <h1>Delay Data</h1>
 
-    
+
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
