@@ -12,7 +12,7 @@
             text: "Number of Delays at Airports Over Time"
         },
         axisX: {
-            valueFormatString: "DD MMM,YY"
+            valueFormatString: "YYYY,MM"
         },
         axisY: {
             title: "# of Delays",
@@ -29,16 +29,11 @@
         data: [{
             name: "{{cDL}}",
             type: "spline",
-            yValueFormatString: "#0.## °C",
+            yValueFormatString: "######",
             showInLegend: true,
             dataPoints: [
-                { x: new Date(2017,6,24), y: 31 },
-                { x: new Date(2017,6,25), y: 31 },
-                { x: new Date(2017,6,26), y: 29 },
-                { x: new Date(2017,6,27), y: 29 },
-                { x: new Date(2017,6,28), y: 31 },
-                { x: new Date(2017,6,29), y: 30 },
-                { x: new Date(2017,6,30), y: 29 }
+                {{dP}}
+
             ]
         }
         ]

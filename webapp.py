@@ -1,5 +1,5 @@
 import json
-from flask import Flask, url_for, render_template, request, url_for
+from flask import Flask, url_for, render_template, request, url_for, Markup
 
 app = Flask(__name__)
 
@@ -60,12 +60,15 @@ def render_dresponse():
         ddata = json.load(delayd)
 
     chosendelay = request.args['dlays']
+    chosenairport = request.args['apz']
     delayammount = 0
+    delaypoints = ""
     for d in ddata:
-        if d['Statistics']['# of Delays'] == chosendelay:
+        if d['Statistics']['# of Delays'] == chosendelay and d["Airport"]["Code"] == chosenairport:
             delayamount = a['Statistics']['# of Delays'][chosendelay]
-
-    return render_template('delayresponse.html', cDL = chosendelay)
+            delaypoints += Markup("{ y:" + d['Statistics']['# of Delays'][chosendelay] +", x:" + d['Time']['Label'] + "},")
+    delaypoints = delaypoints[:-1]
+    return render_template('delayresponse.html', cDL = chosendelay, dP = delaypoints)
 
 
 if __name__=="__main__":
