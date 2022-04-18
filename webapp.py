@@ -64,9 +64,10 @@ def render_dresponse():
     delayammount = 0
     delaypoints = ""
     for d in ddata:
+        for k in MAKE A LOO{ TO GO THRU DELAYS}
         if d['Statistics']['# of Delays'] == chosendelay and d["Airport"]["Code"] == chosenairport:
             delayamount = a['Statistics']['# of Delays'][chosendelay]
-            delaypoints += Markup("{ y:" + d['Statistics']['# of Delays'][chosendelay] +", x:" + d['Time']['Label'] + "},")
+            delaypoints += Markup("{ x:"  + d['Time']['Label'] + ", y:" + d['Statistics']['# of Delays'][chosendelay] + "},")
     delaypoints = delaypoints[:-1]
     return render_template('delayresponse.html', cDL = chosendelay, dP = delaypoints)
 
